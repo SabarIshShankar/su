@@ -4,7 +4,15 @@
       {
         "id": "8d188664-840c-4575-82d8-adfbfe43d13e",
         "line": 1,
-        "version": 0,
+        "version": 1,
+        "index": 0
+      }
+    ],
+    "routes/index.js": [
+      {
+        "id": "ca5a55c0-855d-48a1-8f1c-3c84c5043361",
+        "line": 1,
+        "version": 1,
         "index": 0
       }
     ]

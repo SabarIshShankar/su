@@ -1,0 +1,44 @@
+<title>Spacesurf</title>
+
+<a class="w3-left btn-grad" href="/stories">Feed</a>
+<a class="w3-right btn-grad" href="/dashboard">Profile</a>
+<a class="w3-right btn-grad" href="/auth/logout">Logout</a>
+
+<style>
+	.card-title{
+		font-size: 15px;
+	}
+	.card-content{
+		font-size: 15px;
+	}
+    .w3-bg{
+        background-color: #1d1d1d;
+        border-radius: 6px;
+        color: white;
+    }
+    .date{
+      font-size:8px;
+    }
+    .black{
+      background-color: black;
+    }
+</style>
+<body class="black">
+<div class="row">
+    <div class="col s12 m8">
+        <h4 class="black w3-text-white">{{story.title}}
+            <small>{{{editIcon story.user user story._id false}}}</small>
+        </h4>
+        <div class="card story w3-bg">
+            <div class="card-content">
+                {{{story.body}}}
+            </div>
+        </div>
+         <div class="card-content w3-bg w3-padding">
+                <a href="/stories/user/{{story.user._id}}">Read more from {{story.user.displayName}}</a>
+
+            </div>
+    </div>
+
+</div>
+</body>
