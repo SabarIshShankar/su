@@ -1,0 +1,75 @@
+<title>Spacesurf</title>
+
+
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+td, tr{ 
+        font-size: 15px;
+        color: white;
+        background-color: black;
+    }
+    a{
+        color: white;
+        weight: bold;
+    }
+		w3-button{
+			color: green;
+		}
+    body{
+      background-color: black;
+      color: white;
+    }
+</style>
+<a class="w3-left btn-grad" href="/stories">Feed</a>
+<a class="w3-left btn-grad" href="/stories/add">Create Post</a>
+<a class="w3-right btn-grad" href="/auth/logout">Logout</a>
+
+<h4 class="w3-padding-top">Welcome {{name}}</h4>
+<p>Here are your posts</p>
+{{#if stories}}
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th class="w3-hide-small">Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each stories}}
+        <tr>
+            <td><a href="/stories/{{_id}}">{{title}}</a></td>
+            <td>{{formatDate createdAt 'DD MMMM, h:mm:ss a'}}</td>
+            <td class="w3-hide-small"><span class="dash-status">{{status}}</span></td>
+            <td>
+                <a href="/stories/edit/{{_id}}" class="w3-button">
+                    
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="40" height="40" rx="5" fill="#5F509B"/>
+<path d="M7 27.7924V33H12.2076L27.5666 17.641L22.359 12.4334L7 27.7924ZM31.5938 13.6138C32.1354 13.0722 32.1354 12.1973 31.5938 11.6557L28.3443 8.40619C27.8027 7.8646 26.9278 7.8646 26.3862 8.40619L23.8449 10.9475L29.0525 16.1551L31.5938 13.6138V13.6138Z" fill="white"/>
+</svg>
+
+                </a>
+
+                <form action="/stories/{{_id}}" method="POST" id="delete-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="w3-button ">
+                       
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="40" height="40" rx="5" fill="#5B6080"/>
+<path d="M12.2857 30.2222C12.2857 31.75 13.4429 33 14.8571 33H25.1429C26.5571 33 27.7143 31.75 27.7143 30.2222V13.5556H12.2857V30.2222ZM29 9.38889H24.5L23.2143 8H16.7857L15.5 9.38889H11V12.1667H29V9.38889Z" fill="white"/>
+</svg>
+
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>You have not created any stories</p>
+{{/if}}

@@ -1,38 +1,23 @@
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
-const expressValidator = require('express-validator');
-const passport = require('passport');
-const localStrategy = require('./auth/local');
-const jwtStrategy = require('./auth/jwt');
 const path = require("path");
+const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const morgan = require("morgan");
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
+const passport = require("passport");
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
+const MongoStore = require("connect-mongo")(session);
 const connectDB = require("./config/db");
 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-app.use(expressValidator());
-app.use(morgan('common'));
-app.use(passport.initialize());
-
-passport.use(localStrategy);
-passport.use(jwtStrategy);
-
-require('./routes')(app);
-
-module.exports = app;
+// Load config
+dotenv.config({ path: "./config/config.env" });
 
 require("./config/passport")(passport);
 
 connectDB();
 
+const app = express();
 
 // Body parser
 app.use(express.urlencoded({ extended: false }));
@@ -92,7 +77,7 @@ app.use(
 );
 
 // Passport middleware
-//app.use(passport.initialize());
+app.use(passport.initialize());
 app.use(passport.session());
 
 // Set global var
