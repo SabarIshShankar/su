@@ -1,7 +1,7 @@
 <title>Spacesurf</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
 <link
- href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+ href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 	.date{
@@ -11,11 +11,14 @@
 	.chip{
 		background-color: #ffffff;
 	}
-	p,h1, h2, h3, h4, h5, h6, a{
-		font-family: Montserrat;
+	p,h1, h2, h3, h4, h5, h6{
+		font-family: Rubik;
+	}
+	a{
+		font-family: Chakra Petch;
 	}
   .pa{
-    color: #d464dc;
+    color: #878787;
   }
 	.card-image{
 		box-shadow: 0;
@@ -34,10 +37,10 @@
   padding: 13px;
 }
 .heading{
-  font-family: Playfair Display;
+  font-family: Rubik;
 }
 .card{
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   margin-right: 0px;
   margin-left: 0px;
 }
@@ -100,6 +103,9 @@
 		color: #fff;
 		text-decoration: none;
 	}
+	.nomargin{
+		margin: 3px;
+	}
 </style>
 
 <a class="w3-left btn-grad" href="/stories/add">Create Post</a>
@@ -120,7 +126,7 @@
 <div class="row" id="articles">
     {{#each stories}}
     <div class="col s12 ">
-        <div class="card w3-bg " data-aos="fade-up">
+        <div class="card w3-bg nomargin" data-aos="fade-up">
             <div class="w3-content left-align w3-text-white">
 				
                 <a href="/stories/{{_id}}"><h5 class="heading">{{title}}</h5></a>
@@ -129,14 +135,14 @@
                 <div class="date w3-row">
                 
                 <a href="/stories/user/{{user._id}}">
-                <p>{{user.displayName}} ({{formatDate createdAt 'DD MM YY'}})</p>
+                <p>{{user.displayName}} on {{formatDate createdAt 'DD MM YY'}}</p>
                 
                 </a>
 
                 
-                <a href="/stories/{{_id}}" class="date w3-padding-16">
+                <!--<a href="/stories/{{_id}}" class="date w3-padding-16">
                 <button class="btn-grad2 w3-center w3-padding">Read more</button>
-                </a>
+                </a>-->
 
                 
                 </div>
