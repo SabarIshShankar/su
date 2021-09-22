@@ -12,7 +12,7 @@
 		font-size: 15px;
 	}
     .w3-bg{
-        background-color: #1d1d1d;
+        background-color: gray;
         border-radius: 6px;
         color: white;
     }
@@ -29,8 +29,8 @@
         <h4 class="black w3-text-white">{{story.title}}
             <small>{{{editIcon story.user user story._id false}}}</small>
         </h4>
-        <div class="card story w3-bg">
-            <div class="card-content">
+        <div class="card story w3-bg w3-text-white">
+            <div class="card-content w3-bg">
                 {{{story.body}}}
             </div>
         </div>
